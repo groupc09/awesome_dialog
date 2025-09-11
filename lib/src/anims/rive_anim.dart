@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:rive/rive.dart';
 
 ///RiveRuntimeRender
@@ -15,26 +16,32 @@ class RiveAssetAnimation extends StatefulWidget {
 
   ///Name od the animation to load
   final String animName;
+
   @override
   State<RiveAssetAnimation> createState() => _RiveAnimationState();
 }
 
 class _RiveAnimationState extends State<RiveAssetAnimation> {
-  // Controller for playback
-  late RiveAnimationController<dynamic> _controller;
-
+  late File? file;
+  Artboard? artboard;
+  late SingleAnimationPainter _painter;
+  bool loading = true;
   @override
   void initState() {
     super.initState();
-
-    _controller = SimpleAnimation(widget.animName);
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      file = await File.asset(widget.assetPath, riveFactory: Factory.flutter);
+      _painter = SingleAnimationPainter(widget.animName);
+      artboard = file?.defaultArtboard();
+      loading = false;
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.asset(
-      widget.assetPath,
-      controllers: [_controller],
-    );
+    return loading
+        ? const SizedBox.shrink()
+        : RiveArtboardWidget(artboard: artboard!, painter: _painter);
   }
 }
