@@ -1,3 +1,7 @@
+## [3.3.0] - 30/09/2025
+
+* Upgrade rive dependencies to rive: ^0.14.0-dev.8
+
 ## [3.2.1] - 30/04/2024
 
 * Upgrade dependencies.
