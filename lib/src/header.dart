@@ -20,7 +20,7 @@ class AwesomeDialogHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (dialogType) {
       case DialogType.info:
-        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.info, color: Colors.green)));
+        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.info, color: Colors.red)));
         /*return RiveAssetAnimation(
           assetPath: 'packages/awesome_dialog/assets/rive/info.riv',
           animName: loop ? 'appear_loop' : 'appear',
@@ -51,7 +51,7 @@ class AwesomeDialogHeader extends StatelessWidget {
         //   animName: loop ? 'appear_loop' : 'appear',
         // );
       case DialogType.success:
-        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.check_box, color: Colors.green,)));
+        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.check_circle, color: Colors.green,)));
         // return RiveAssetAnimation(
         //   assetPath: 'packages/awesome_dialog/assets/rive/success.riv',
         //   animName: loop ? 'appear_loop' : 'appear',
