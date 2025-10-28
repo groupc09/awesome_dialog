@@ -20,7 +20,7 @@ class AwesomeDialogHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (dialogType) {
       case DialogType.info:
-        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.info, color: Colors.red)));
+        return Expanded(child: FittedBox(fit: BoxFit.contain, child: Icon(Icons.info, color: Colors.green)));
         /*return RiveAssetAnimation(
           assetPath: 'packages/awesome_dialog/assets/rive/info.riv',
           animName: loop ? 'appear_loop' : 'appear',
