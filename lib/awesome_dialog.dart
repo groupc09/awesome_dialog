@@ -270,10 +270,11 @@ class AwesomeDialog {
     if (dialogType == DialogType.noHeader) {
       return null;
     }
-    return AwesomeDialogHeader(
+    return null;
+    /*return AwesomeDialogHeader(
       loop: headerAnimationLoop,
       dialogType: dialogType,
-    );
+    );*/
   }
 
   /// Returns the body of the dialog
